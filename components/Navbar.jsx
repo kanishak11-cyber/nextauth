@@ -1,42 +1,29 @@
 "use client";
-import React from "react";
-import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+import React from "react";
 
 const Navbar = () => {
-
+    const {data:session, status} = useSession();
+    console.log(session?.user.name)
   return (
-    <div>
-      <div>
-        <nav className="flex flex-row justify-between px-28 py-4 gap-4">
-          <div>
-            Home
-          </div>
-          <div className="flex flex-row gap-4 ">
-            <Link href='/register'>Register</Link>
-            <Link href='/result'>Login</Link>
-          </div>
-        </nav>
+    <div className="flex flex-row justify-between px-28 py-5 text-xl shadow-md shadow-slate-150">
+      {session ? (
+        <div className="flex flex-row gap-4 items-end">
+          <p className="text-gray-600">{session?.user.name}</p>
+          <button onClick={() => signOut()}>Logout</button>
+        </div>
+      ) : (
+      <>
+      <Link href={'/'}>Home</Link>
+      <div className="flex flex-row gap-4 items-center justify-between">
+        <Link href='/register'>Register</Link>
+        <Link href='/login'>Login</Link>
       </div>
-      {/* <ul className="flex justify-between m-10 item-center">
-        <div>
-          <Link href="https://vmace.in">
-            <li>Home</li>
-          </Link>
-        </div>
-        <div className="flex gap-10">
-          <li>
-            <button
-              onClick={() => {
-                signOut();
-              }}
-              className="p-2 px-5 -mt-1 bg-blue-800 rounded-full"
-            >
-              Logout
-            </button>
-          </li>
-        </div>
-      </ul> */}
+      </>
+      
+      )}
+      
     </div>
   );
 };

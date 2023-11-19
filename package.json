@@ -12,6 +12,7 @@
     "@auth/prisma-adapter": "^1.0.6",
     "@prisma/client": "^5.6.0",
     "axios": "^1.6.2",
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "jose": "^5.1.1",
     "mongoose": "^7.6.5",
@@ -22,7 +23,6 @@
     "react-dom": "latest"
   },
   "devDependencies": {
-
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
