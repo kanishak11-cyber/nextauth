@@ -88,23 +88,9 @@ export async function POST(req) {
 }
 
 
-export async function GET(req) {
-   const { username } = req.body;
-
-   try {
-     const user = await prisma.user.findUnique({
-       where: { username },
-     });
- 
-     if (!user) {
-       return res.status(404).json({ message: 'User not found' });
-     }
- 
-     return res.status(200).json({ user });
-   } catch (error) {
-     return res.status(500).json({ message: 'Internal Server Error' });
-   } finally {
-     await prisma.$disconnect();
-   }
+export async function GET(req,{searchParams}) {
+  const user = await prisma.User.findMany();
+  console.log(user)
+  return new NextResponse(user, {status: 200});
 }
  

@@ -3,8 +3,9 @@ import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-export async function GET(req,res){
-    const {username} = req.body;
+export async function GET(req,res, {params}){
+  const username= params.userId;
+    // const {username} = req.body;
     console.log(username)
 
     try {
