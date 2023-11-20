@@ -42,14 +42,15 @@ const LoginForm = () => {
   };
 
   return( 
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="min-h-[90vh] flex flex-col items-center justify-center bg-gray-50">
+       <h1 className='text-center text-lg py-5'>Enter a valid Enrolment number provided by the VMACE Institute </h1>
     <form
       onSubmit={submitHandler}
       className="bg-white p-8 rounded shadow-md max-w-md w-full"
     >
       <div className="mb-4">
         <label htmlFor="email" className="block text-sm font-medium text-gray-600">
-          username
+          Enrollment Number: 
         </label>
         <input
           type="text"
@@ -61,7 +62,7 @@ const LoginForm = () => {
       </div>
       <div className="mb-4">
         <label htmlFor="password" className="block text-sm font-medium text-gray-600">
-          Password
+          Date of Birth:
         </label>
         <input
           type="date"

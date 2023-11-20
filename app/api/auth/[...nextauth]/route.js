@@ -53,6 +53,7 @@ const handleSession = async ({ session }) => {
         email: email,
       },
       select: {
+        email: true,
         fatherName: true,
         motherName: true,
         name: true,
@@ -69,6 +70,7 @@ const handleSession = async ({ session }) => {
     }
 
     const {
+     
       name,
       fatherName,
       motherName,
@@ -83,7 +85,7 @@ const handleSession = async ({ session }) => {
       ...session,
       user: {
         ...session.user,
-
+        email,
         name,
         fatherName,
         motherName,
